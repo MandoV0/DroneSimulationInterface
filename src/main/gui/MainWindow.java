@@ -41,9 +41,10 @@ public class MainWindow extends JFrame {
 
         createToolBar();
 
-        contentPanel = new JPanel();
-        contentPanel.setLayout(new FlowLayout());
-        contentPanel.setBackground(new Color(27, 27, 30));
+        contentPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20)); // Flowlayout for now with hori 20 & Verti 20
+        //contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));  //**
+        contentPanel.setBackground(EERIE_BLACK); //Set the backround color of the contentPanel
+        //contentPanel.setBackground(new Color(27, 27, 30));
 
         DroneSimulationInterfaceAPI api = new DroneSimulationInterfaceAPI();
 
@@ -62,8 +63,16 @@ public class MainWindow extends JFrame {
             }
         }
 
-        contentPanel.setVisible(true);
-        add(contentPanel);
+        //contentPanel.setVisible(true);
+
+        //Füge JScrollPane hinzu
+        JScrollPane scrollPane = new JScrollPane(contentPanel,
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER); // ScrollPane just for Vertical Scrolling
+
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16); // Smooth Scrolling
+        contentPanel.setPreferredSize(new Dimension(850, drones.size() * 120)); // Adjust the size of the contentPanel (120 Pixel per Drone)
+        add(scrollPane, BorderLayout.CENTER); // ScrollPane add to the Center of the BoderLayout
     }
 
     private void createToolBar() {

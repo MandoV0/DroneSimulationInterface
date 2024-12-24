@@ -26,4 +26,48 @@ public class DynamicDrone extends DroneBase {
         this.last_seen = last_seen;
         this.status = status;
     }
+
+    public String getDrone() {
+        return drone;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getAllign_roll() {
+        return allign_roll;
+    }
+
+    public int getAllign_pitch() {
+        return allign_pitch;
+    }
+
+    public int getAllign_yaw() {
+        return allign_yaw;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public int getBattery_status() {
+        return battery_status;
+    }
+
+    public String getLast_seen() {
+        return last_seen;
+    }
+
+    public int getStatus() {
+        return status;
+    }
 }
