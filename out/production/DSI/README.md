@@ -7,7 +7,9 @@
 # 👩‍💻 Collaborators
 | Name          |   Role        | GitHub Profile
 | ----------    | ----------    | ----------
-| Jon           | Jon           | @Test
+| Burak         | .             | @MandoV0
+| Gabriel       | .             | @Gibo20001119
+| Mohammed      | .             | @itsMoha963
 
 # 🖥️ Setup Instructions
 
