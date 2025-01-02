@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.*;
 import gui.MainWindow;
 import utils.RootLogger;
 
