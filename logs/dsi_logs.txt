@@ -1,8 +1,24 @@
-Jan. 04, 2025 2:02:37 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 04, 2025 7:10:49 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 04, 2025 2:02:37 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 04, 2025 7:10:49 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 04, 2025 2:02:37 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 04, 2025 7:10:49 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint drones: (GET http://dronesim.facets-labs.com/api/drones/?format=json&limit=40&offset=0) 200
-Jan. 04, 2025 2:02:37 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 04, 2025 7:10:49 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=0) 200
+Jan. 04, 2025 7:10:59 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=32) 200
+Jan. 04, 2025 7:11:00 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=64) 200
+Jan. 04, 2025 7:11:00 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=96) 200
+Jan. 04, 2025 7:11:00 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=128) 200
+Jan. 04, 2025 7:11:00 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=160) 200
+Jan. 04, 2025 7:11:00 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=192) 200
+Jan. 04, 2025 7:11:01 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=224) 200
+Jan. 04, 2025 7:11:01 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=256) 200

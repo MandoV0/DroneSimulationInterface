@@ -14,6 +14,10 @@ import utils.Colors;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.OffsetDateTime;
+
 import java.util.Map;
 import java.util.Objects;
 
@@ -97,6 +101,12 @@ public class FlightDynamics extends JPanel {
     private JPanel createDronePanel(DynamicDrone drone) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd | HH:mm");
+
+        OffsetDateTime offsetDateTime = OffsetDateTime.parse(drone.getLastSeen(), inputFormatter);
+        String formattedLastSeen = offsetDateTime.format(outputFormatter);
+      //System.out.println(formattedLastSeen);
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(UIManager.getColor("TextField.borderColor"), 1),
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)
@@ -112,8 +122,8 @@ public class FlightDynamics extends JPanel {
         titleLabel.setForeground(UIManager.getColor("TextField.foreground"));
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 14));
         JLabel detailsLabel = new JLabel(String.format(
-                "Speed: %.2f km/h, Battery: %.0f%%, Last Seen: %s, Status: %s",
-                (double) drone.getSpeed(), ((double) drone.getBatteryStatus() / type.getBatteryCapacity()) * 100.0f, drone.getLastSeen(), drone.getStatus()
+                "Speed: %.2f km/h, Last Seen: %s, Status: %s",
+                (double) drone.getSpeed(),formattedLastSeen, drone.getStatus()
         ));
         detailsLabel.setForeground(UIManager.getColor("TextField.foreground"));
 
@@ -131,17 +141,21 @@ public class FlightDynamics extends JPanel {
         textPanel.add(titleLabel);
         textPanel.add(detailsLabel);
         textPanel.add(locationLabel);
+
         JPanel statusPanel = new JPanel();
         statusPanel.setOpaque(false);
-        statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
+
         textPanel.add(statusPanel);
         statusPanel.add(new BatteryPanel(drone.getBatteryStatus(), type.getBatteryCapacity()));
+
         JPanel powerStatus = new JPanel();
-        if (Objects.equals(drone.getStatus(), "ON")) {
-            powerStatus.setBackground(Color.green);
-        } else {
-            powerStatus.setBackground(Color.red);
-        }
+        JLabel statusLabel = new JLabel("Status:");
+        statusPanel.add(statusLabel);
+
+        //reternary operator to check the status of the drone better than the if statment
+        powerStatus.setBackground(Objects.equals(drone.getStatus(), "ON") ? Color.GREEN : Color.RED);
+
         statusPanel.add(powerStatus);
 
         panel.add(textPanel, BorderLayout.CENTER);
