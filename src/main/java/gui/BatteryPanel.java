@@ -17,12 +17,12 @@ public class BatteryPanel extends JPanel {
     private static final int FILL_MARGIN = 4;
 
 
-    BatteryPanel(int currentBatteryCapacity, int maxBatteryCapacity) {
+    public BatteryPanel(int currentBatteryCapacity, int maxBatteryCapacity) {
         this.currentBatteryCapacity = currentBatteryCapacity;
         this.maxBatteryCapacity = maxBatteryCapacity;
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        add(new JLabel("Battery Capacity: "));
+        setOpaque(false);
 
         try {
             batteryImage = ImageIO.read(new File("Icons/battery.png"));
@@ -37,21 +37,63 @@ public class BatteryPanel extends JPanel {
                 Graphics2D g2d = (Graphics2D) g;
 
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                g2d.drawImage(batteryImage, 0, 0, this);
 
-                int fillWidth = (int) ((batteryImage.getWidth() - (FILL_MARGIN * 2)) * calculateBatteryRatio()) - 2;
+                // Calculate the scale factor
+                int scaledWidth = getWidth();
+                int scaledHeight = getHeight();
+                int originalWidth = batteryImage.getWidth();
+                int originalHeight = batteryImage.getHeight();
 
+                float scaleX = (float) scaledWidth / originalWidth;
+                float scaleY = (float) scaledHeight / originalHeight;
+                float scale = Math.min(scaleX, scaleY); // Preserve aspect ratio
+                int newWidth = (int) (originalWidth * scale);
+                int newHeight = (int) (originalHeight * scale);
+
+                // Calculate offsets to center the scaled image
+                int xOffset = (getWidth() - newWidth) / 2;
+                int yOffset = (getHeight() - newHeight) / 2;
+
+                // Draw the scaled battery image
+                g2d.drawImage(batteryImage, xOffset, yOffset, newWidth, newHeight, this);
+
+                // Calculate the battery fill width relative to the scaled size
+                int fillMargin = (int) (FILL_MARGIN * scale);
+                int fillWidth = (int) ((newWidth - (fillMargin * 2)) * calculateBatteryRatio()) - 2;
+
+                // Draw the battery fill
                 g2d.setColor(getBatteryColor());
-                g2d.fillRect(FILL_MARGIN, FILL_MARGIN, fillWidth, batteryImage.getHeight() - (FILL_MARGIN * 2));
+                g2d.fillRect(xOffset + fillMargin, yOffset + fillMargin, fillWidth, newHeight - (fillMargin * 2));
+
+                // Draw the percentage text
+                String percentageText = String.format("%.0f%%", calculateBatteryRatio() * 100);
+                g2d.setFont(new Font("SansSerif", Font.BOLD, (int) (10 * scale))); // Scale the font size
+                FontMetrics metrics = g2d.getFontMetrics();
+                int textWidth = metrics.stringWidth(percentageText);
+                int textHeight = metrics.getHeight();
+
+                // Center the text over the battery icon
+                int textX = xOffset + (newWidth - textWidth) / 2;
+                int textY = yOffset + (newHeight + textHeight / 2) / 2;
+
+                g2d.setColor(Color.BLACK); // Background text for better visibility
+                g2d.drawString(percentageText, textX + 1, textY + 1); // Slight offset for shadow effect
+
+                g2d.setColor(Color.WHITE); // Foreground text
+                g2d.drawString(percentageText, textX, textY);
             }
 
             @Override
             public Dimension getPreferredSize() {
-                return new Dimension(batteryImage.getWidth(), batteryImage.getHeight());
+                return new Dimension(100, 40);
             }
         };
 
         add(batteryPanel);
+    }
+
+    public Dimension getPreferredSize() {
+        return new Dimension(90, 30);
     }
 
     private float calculateBatteryRatio() {

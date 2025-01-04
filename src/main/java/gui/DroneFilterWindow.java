@@ -16,12 +16,12 @@ Could then remove the ugly gridBagLayout and dynamically add required Components
 public class DroneFilterWindow extends JDialog {
     private JComboBox<String> carriageTypeComboBox;
 
-    private final DroneWindow window;
+    private final Object window;
     private final DefaultDroneFilter currentFilter;
 
     private FilterRange weightRange;
 
-    public DroneFilterWindow(DroneWindow window, DefaultDroneFilter currentFilter) {
+    public DroneFilterWindow(Object window, DefaultDroneFilter currentFilter) {
         setTitle("Drone Filter");
         this.window = window;
         this.currentFilter = currentFilter;
@@ -86,6 +86,6 @@ public class DroneFilterWindow extends JDialog {
 
         DefaultDroneFilter filter = new DefaultDroneFilter(carriageTypeComboBox.getSelectedItem().toString(), (int) min, (int) max);
 
-        window.setFilter(filter);
+        //window.setFilter(filter);
     }
 }

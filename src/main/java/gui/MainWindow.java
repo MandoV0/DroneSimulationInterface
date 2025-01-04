@@ -1,5 +1,10 @@
 package gui;
 
+import core.Drone;
+import gui.view.DroneCatalog;
+import gui.view.DroneDashboard;
+import gui.view.FlightDynamics;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.File;
@@ -8,7 +13,6 @@ import java.io.IOException;
 public class MainWindow extends JFrame {
 
     public MainWindow() {
-
         setTitle("Drone Simulation Interface");
         setSize(900, 1000);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -24,9 +28,9 @@ public class MainWindow extends JFrame {
 
     public void createTaskBar() {
         JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Drone", new DroneWindow());
-        tabbedPane.addTab("Dynamic Drone", new DynamicDroneWindow());
-        tabbedPane.addTab("Drone Types", new DroneTypeView());
+        tabbedPane.addTab("Drone Catalog", new DroneCatalog());
+        tabbedPane.addTab("Flight Dynamics", new FlightDynamics());
+        tabbedPane.addTab("Drone Dashboard", new DroneDashboard());
         add(tabbedPane);
     }
 }

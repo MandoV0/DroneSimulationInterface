@@ -1,5 +1,7 @@
 package core;
 
+import services.Helper;
+
 public class DynamicDrone extends DroneBase {
     private final String drone;
     private final String timestamp;
@@ -26,7 +28,7 @@ public class DynamicDrone extends DroneBase {
         this.last_seen = last_seen;
         this.status = status;
 
-        this.id = Integer.parseInt(extractDroneId(drone));
+        this.id = Helper.extractID(drone);
     }
 
     public String getDrone() {
@@ -71,19 +73,5 @@ public class DynamicDrone extends DroneBase {
 
     public String getStatus() {
         return status;
-    }
-
-    private String extractDroneId(String fullDroneUrl)
-    {
-        String droneId = fullDroneUrl;
-        try {
-            if (fullDroneUrl != null && !fullDroneUrl.isEmpty()){
-                String[] parts = fullDroneUrl.split("/");
-                droneId = parts[parts.length - 2];
-            }
-        }catch (Exception e){
-            System.err.println("Error while extracting drone ID:" + e.getMessage());
-        }
-        return droneId;
     }
 }

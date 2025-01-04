@@ -7,7 +7,7 @@ import utils.RootLogger;
 public class Main {
     public static void main(String[] args) {
         try {
-            UIManager.setLookAndFeel( new FlatLightLaf() );
+            UIManager.setLookAndFeel( new FlatDarculaLaf() );
         } catch( Exception ex ) {
             System.err.println("Failed to initialize FlatLightLeaf Look and Feel");
         }
