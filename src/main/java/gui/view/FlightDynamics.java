@@ -33,7 +33,7 @@ public class FlightDynamics extends JPanel {
     public FlightDynamics() {
         setLayout(new BorderLayout());
 
-        api = new DroneSimulationInterfaceAPI();
+        api = new DroneSimulationInterfaceAPI(new DroneParser(),100,0);
 
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));

@@ -1,6 +1,7 @@
 package gui.view;
 
 import core.DroneType;
+import core.parser.DroneParser;
 import core.parser.DroneTypeParser;
 import services.DroneSimulationInterfaceAPI;
 import utils.Colors;
@@ -20,7 +21,7 @@ public class DroneCatalog extends JPanel {
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         contentPanel.setBackground(UIManager.getColor("Panel.background"));
 
-        DroneSimulationInterfaceAPI api = new DroneSimulationInterfaceAPI();
+        DroneSimulationInterfaceAPI api = new DroneSimulationInterfaceAPI(new DroneParser(),100,0);
         Map<Integer, DroneType> drones = Map.of();
         try {
             drones = api.fetchDrones(new DroneTypeParser(), 40, 0);

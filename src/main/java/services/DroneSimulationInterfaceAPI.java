@@ -21,6 +21,10 @@ import java.util.Properties;
 
 import java.util.logging.*;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class DroneSimulationInterfaceAPI {
     private static final Logger log = Logger.getLogger(DroneSimulationInterfaceAPI.class.getName());
     private final String BASEURL = "http://dronesim.facets-labs.com/api/";
@@ -29,10 +33,14 @@ public class DroneSimulationInterfaceAPI {
     private final HttpClient httpClient;
     private final int SECONDS_TILL_TIMEOUT = 300;
 
-    public DroneSimulationInterfaceAPI() {
+    private ScheduledExecutorService scheduler;
+
+    public <T extends DroneBase> DroneSimulationInterfaceAPI(JsonDroneParser<T> parser, int limit, int offset) {
         httpClient = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(SECONDS_TILL_TIMEOUT))
                 .build();
+
+        startAutoUpdate(parser, limit, offset);
     }
 
     private JSONObject fetchDataFromEndpoint(String endpointUrl, int limit, int offset) throws IOException, InterruptedException {
@@ -75,6 +83,37 @@ public class DroneSimulationInterfaceAPI {
         }
         catch (URISyntaxException e) {
             throw new RuntimeException("Error while constructing URI." + e.getMessage());
+        }
+    }
+    private boolean isSchedulerRunning = false;
+
+    private <T extends DroneBase> void startAutoUpdate(JsonDroneParser<T> parser, int limit, int offset){
+        if (isSchedulerRunning) {
+            log.log(Level.WARNING, "Scheduler is already running");
+            return;
+        }
+
+
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+        isSchedulerRunning = true;
+
+        Runnable updateTask = () -> {
+            try {
+                log.log(Level.INFO, "Data Update Start");
+                Map<Integer, ?> data = fetchDrones(parser,limit,offset);
+                log.log(Level.INFO, "Data Update Finish");
+            } catch (IOException | InterruptedException e){
+                log.log(Level.SEVERE, "Error while fetching data from endpoint " + parser.getEndpoint(), e);
+            }
+        };
+        scheduler.scheduleAtFixedRate(updateTask, 0, 120, TimeUnit.SECONDS);
+    }
+
+    public void stopAutoUpdate() {
+        if (scheduler != null && !scheduler.isShutdown()) {
+            scheduler.shutdownNow();
+            log.log(Level.INFO, "Auto Update Stopped");
+
         }
     }
 
