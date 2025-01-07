@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <style name="DarkTheme">
+        <color name="primary_text_color" hex="d8dbe2" r="216" g="219" b="226" />
+        <color name="Powder blue" hex="a9bcd0" r="169" g="188" b="208" />
+        <color name="Moonstone" hex="58a4b0" r="88" g="164" b="176" />
+        <color name="primary_foreground_color" hex="272b34" r="39" g="43" b="52" />
+        <color name="primary_background_color" hex="1b1b1e" r="27" g="27" b="30" />
+    </style>
+</resources>
