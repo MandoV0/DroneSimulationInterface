@@ -1,47 +1,22 @@
-<<<<<<< HEAD
-Jan. 17, 2025 4:50:34 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 4:50:34 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 4:50:34 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint drones: (GET http://dronesim.facets-labs.com/api/drones/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 4:50:34 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=0) 200
-Jan. 17, 2025 4:50:34 PM utils.AutoRefresh start
+Jan. 17, 2025 6:06:48 PM utils.AutoRefresh start
 INFORMATION: Scheduler started
-Jan. 17, 2025 4:50:34 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint drones: (GET http://dronesim.facets-labs.com/api/drones/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 4:50:34 PM gui.view.DroneDashboard loadDrones
+Jan. 17, 2025 6:06:48 PM gui.view.DroneDashboard loadDrones
 INFORMATION: Successfully fetched 40 Drones.
-Jan. 17, 2025 4:50:34 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 4:50:34 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:49 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint drones: (GET http://dronesim.facets-labs.com/api/drones/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 4:50:44 PM gui.view.FlightDynamics setFilter
-INFORMATION: Set Drone Filter
-Jan. 17, 2025 4:50:45 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=0) 200
-=======
-Jan. 17, 2025 5:35:47 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 5:35:47 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 5:35:47 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint drones: (GET http://dronesim.facets-labs.com/api/drones/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 5:35:47 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint dronedynamics: (GET http://dronesim.facets-labs.com/api/dronedynamics/?format=json&limit=32&offset=0) 200
-Jan. 17, 2025 5:35:48 PM utils.AutoRefresh start
-INFORMATION: Scheduler started
-Jan. 17, 2025 5:35:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint drones: (GET http://dronesim.facets-labs.com/api/drones/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 5:35:48 PM gui.view.DroneDashboard loadDrones
-INFORMATION: Successfully fetched 40 Drones.
-Jan. 17, 2025 5:35:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint dronetypes: (GET http://dronesim.facets-labs.com/api/dronetypes/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 5:35:48 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Fetched data from endpoint drones: (GET http://dronesim.facets-labs.com/api/drones/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 5:35:50 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 17, 2025 6:06:52 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Fetched data from endpoint 131/dynamics: (GET http://dronesim.facets-labs.com/api/131/dynamics/?format=json&limit=40&offset=0) 200
-Jan. 17, 2025 5:35:50 PM gui.view.DroneDashboard loadDronePage
+Jan. 17, 2025 6:06:52 PM gui.view.DroneDashboard loadDronePage
 INFORMATION: Successfully loaded 40 Drones.
->>>>>>> 4e3643a (icon support for  macOS and some minor changes here and there)

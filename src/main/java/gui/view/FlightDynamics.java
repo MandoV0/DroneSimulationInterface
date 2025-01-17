@@ -10,6 +10,7 @@ import gui.BatteryPanel;
 import gui.DroneFilterWindow;
 import services.DroneSimulationInterfaceAPI;
 import utils.AutoRefresh;
+import utils.Constants;
 import utils.DefaultDroneFilter;
 
 import javax.swing.*;
@@ -57,8 +58,7 @@ public class FlightDynamics extends JPanel {
         JToolBar toolBar = new JToolBar();
         toolBar.setFloatable(false);
         toolBar.setBackground(UIManager.getColor("Panel.background").brighter());
-        ImageIcon refreshIcon = new ImageIcon(new ImageIcon(getClass().getResource("/Icons/filter.png")).getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH));
-
+        ImageIcon refreshIcon = new ImageIcon(new ImageIcon(getClass().getResource(Constants.FILTER_ICON_PATH)).getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH));
         JButton filterButton = new JButton(refreshIcon);
         filterButton.setToolTipText("Filter Drones");
         filterButton.setBackground(UIManager.getColor("Button.background"));
