@@ -8,19 +8,15 @@ import core.parser.DroneTypeParser;
 import gui.BatteryPanel;
 import services.DroneSimulationInterfaceAPI;
 import services.Helper;
-import utils.Constants;
-
-import gui.filter.FilterRange;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -44,13 +40,13 @@ public class DroneDashboard extends JPanel {
         JScrollPane leftScrollPane = new JScrollPane(dronesPanel);
         leftScrollPane.setBorder(BorderFactory.createEtchedBorder(UIManager.getColor("Panel.background").brighter(),
                 UIManager.getColor("Panel.background").darker()));
-        leftScrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        leftScrollPane.getVerticalScrollBar().setUnitIncrement(16);                     // Smoother scrolling
 
         leftScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         leftScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weighty = 1;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weightx = 0.2; // Fills 20% of the screen horizontally
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(leftScrollPane, gridBagConstraints);
 
@@ -61,7 +57,7 @@ public class DroneDashboard extends JPanel {
 
         gridBagConstraints.gridx = 1;
         gridBagConstraints.weighty = 1;
-        gridBagConstraints.weightx = 0.8;
+        gridBagConstraints.weightx = 0.8; // Fills 80% of the screen
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(droneInfoLabel, gridBagConstraints);
 
@@ -76,7 +72,9 @@ public class DroneDashboard extends JPanel {
     }
 
     private void loadDrones() throws IOException, InterruptedException {
+        // Only 40 Drones exist, so we only fetch 40 drones.
         Map<Integer, Drone> drones = DroneSimulationInterfaceAPI.getInstance().fetchDrones(new DroneParser(), 40, 0);
+
         for (Drone drone : drones.values()) {
             dronesPanel.add(createDroneButton(drone.getId()));
         }
@@ -96,6 +94,13 @@ public class DroneDashboard extends JPanel {
         }
     }
 
+    /**
+     * Called when User clicks on a Button, to load Drone Information
+     * Calculates Custom Information from existing Data.
+     * - How much Battery time is left
+     * - Drone Carriage ballast
+     * @param id
+     */
     private void loadDronePage(int id) {
         droneInfoLabel.removeAll();
         droneInfoLabel.setLayout(new BorderLayout(10, 10));
@@ -114,34 +119,19 @@ public class DroneDashboard extends JPanel {
         if (!dynamicDrones.isEmpty()) {
             DynamicDrone latestDrone = dynamicDrones.get(dynamicDrones.size() - 1);
 
+            // Create top status bar
             JPanel statusBar = new JPanel(new FlowLayout(FlowLayout.LEFT, 20, 5));
             statusBar.setBackground(new Color(230, 230, 230));
             statusBar.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
-            DateTimeFormatter inputFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
-            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd | HH:mm");
-            JLabel timestampLabel;
-
-            /* BURAK PLEASE DO NOT CHANGE ITTTT*/
-
-            Drone drone = droneCache.get(id);
-            System.out.println(drone.getCreated());
-            if(drone != null){
-                try {
-                    OffsetDateTime offsetDateTime = OffsetDateTime.parse(drone.getCreated(), inputFormatter);
-                    String formattedCreated = offsetDateTime.format(outputFormatter);
-                    timestampLabel = new JLabel("Timestamp: " + formattedCreated);
-                } catch (DateTimeParseException e) {
-                    timestampLabel = new JLabel("Timestamp: Invalid date format");
-                }
-            }
-            else {
-                timestampLabel = new JLabel("Timestamp: Drone not found");
-            }
-
+            // Add timestamp
+            JLabel timestampLabel = new JLabel("Timestamp: " + "XXXX-XXXX");
             timestampLabel.setFont(new Font("Arial", Font.BOLD, 12));
-            statusBar.add(timestampLabel);
+            statusBar.add(new BatteryPanel(latestDrone.getBatteryStatus(), droneTypesCache.get(droneCache.get(latestDrone.getId()).getDroneTypeID()).getBatteryCapacity() ));
 
+            boolean isOn = false;
+
+            // Add status indicator
             JPanel statusIndicator = new JPanel() {
                 @Override
                 protected void paintComponent(Graphics g) {
@@ -154,11 +144,15 @@ public class DroneDashboard extends JPanel {
             };
             statusIndicator.setPreferredSize(new Dimension(20, 20));
 
+            // Add components to status bar
+            statusBar.add(timestampLabel);
             statusBar.add(statusIndicator);
 
+            // Create main info panel
             JPanel mainInfo = new JPanel(new GridLayout(4, 1, 10, 10));
             mainInfo.setBackground(new Color(245, 245, 245));
 
+            // Calculate required information
             double totalDistance = 0;
             for (int i = 1; i < dynamicDrones.size(); i++) {
                 DynamicDrone prev = dynamicDrones.get(i - 1);
@@ -166,18 +160,22 @@ public class DroneDashboard extends JPanel {
                 totalDistance += Helper.haversineDistance(prev.getLongitude(), prev.getLatitude(), curr.getLongitude(), curr.getLatitude());
             }
 
+            // Create info boxes with data
             mainInfo.add(createInfoBox("Speed", String.format("%.1f km/h", (double) latestDrone.getSpeed())));
             mainInfo.add(createInfoBox("Total Distance", String.format("%.2f km", totalDistance / 1000)));
             mainInfo.add(createInfoBox("Location",
                     String.format("%.6f, %.6f", latestDrone.getLongitude(), latestDrone.getLatitude())));
 
+            // Last info panel (Last Seen & Carriage)
             JPanel lastInfoPanel = new JPanel(new GridLayout(1, 2, 10, 0));
             lastInfoPanel.setBackground(new Color(245, 245, 245));
+
 
             lastInfoPanel.add(createInfoBox("Last Seen", "Yesterday oder so"));
             lastInfoPanel.add(createInfoBox("Carriage Last", "Mock Info"));
             mainInfo.add(lastInfoPanel);
 
+            // Add all components to main panel
             droneInfoLabel.add(statusBar, BorderLayout.NORTH);
             droneInfoLabel.add(mainInfo, BorderLayout.CENTER);
         }
@@ -186,6 +184,7 @@ public class DroneDashboard extends JPanel {
         droneInfoLabel.repaint();
     }
 
+    // Helper method to create consistent info boxes
     private JPanel createInfoBox(String title, String value) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout(5, 5));
