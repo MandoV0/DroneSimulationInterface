@@ -15,6 +15,9 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -124,8 +127,24 @@ public class DroneDashboard extends JPanel {
             statusBar.setBackground(new Color(230, 230, 230));
             statusBar.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
-            // Add timestamp
-            JLabel timestampLabel = new JLabel("Timestamp: " + "XXXX-XXXX");
+            // Add timestamp BURAK PLEASE DON'T CHANGE THIS
+            DateTimeFormatter inputFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd | HH:mm");
+            JLabel timestampLabel;
+            Drone drone = droneCache.get(id);
+            if(drone != null){
+                try {
+                    OffsetDateTime offsetDateTime = OffsetDateTime.parse(drone.getCreated(), inputFormatter);
+                    String formattedCreated = offsetDateTime.format(outputFormatter);
+                    timestampLabel = new JLabel("Timestamp: " + formattedCreated);
+                } catch (DateTimeParseException e) {
+                    timestampLabel = new JLabel("Timestamp: Invalid date format");
+                }
+            }
+            else {
+                timestampLabel = new JLabel("Timestamp: Drone not found");
+            }
+
             timestampLabel.setFont(new Font("Arial", Font.BOLD, 12));
             statusBar.add(new BatteryPanel(latestDrone.getBatteryStatus(), droneTypesCache.get(droneCache.get(latestDrone.getId()).getDroneTypeID()).getBatteryCapacity() ));
 
