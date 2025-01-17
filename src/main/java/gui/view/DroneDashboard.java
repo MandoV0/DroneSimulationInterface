@@ -49,7 +49,7 @@ public class DroneDashboard extends JPanel {
         leftScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         gridBagConstraints.gridx = 0;
         gridBagConstraints.weighty = 1;
-        gridBagConstraints.weightx = 0.2; // Fills 20% of the screen horizontally
+        gridBagConstraints.weightx = 0.3; // Fills 20% of the screen horizontally
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(leftScrollPane, gridBagConstraints);
 
@@ -60,7 +60,7 @@ public class DroneDashboard extends JPanel {
 
         gridBagConstraints.gridx = 1;
         gridBagConstraints.weighty = 1;
-        gridBagConstraints.weightx = 0.8; // Fills 80% of the screen
+        gridBagConstraints.weightx = 0.7; // Fills 80% of the screen
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         add(droneInfoLabel, gridBagConstraints);
 
@@ -190,7 +190,7 @@ public class DroneDashboard extends JPanel {
             lastInfoPanel.setBackground(new Color(245, 245, 245));
 
 
-            lastInfoPanel.add(createInfoBox("Last Seen", "Yesterday oder so"));
+            lastInfoPanel.add(createInfoBox("Last Seen", timestampLabel.getText()));
             lastInfoPanel.add(createInfoBox("Carriage Last", "Mock Info"));
             mainInfo.add(lastInfoPanel);
 
@@ -234,14 +234,14 @@ public class DroneDashboard extends JPanel {
         button.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
         button.setPreferredSize(new Dimension(100, 50));
 
-        button.setFont(new Font("Arial", Font.BOLD, 16));
+        button.setFont(new Font("Arial", Font.BOLD, 13));
 
         button.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
                 Font currentFont = button.getFont();
                 int buttonWidth = button.getWidth();
-                int newFontSize = Math.max(buttonWidth / 20, 16);
+                int newFontSize = Math.max(buttonWidth / 20, 14);
                 button.setFont(new Font(currentFont.getName(), currentFont.getStyle(), newFontSize));
             }
         });
