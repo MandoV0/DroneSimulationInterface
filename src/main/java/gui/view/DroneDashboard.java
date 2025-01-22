@@ -22,8 +22,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class DroneDashboard extends JPanel {
     private final Logger log = Logger.getLogger(DroneDashboard.class.getName());
@@ -33,6 +32,7 @@ public class DroneDashboard extends JPanel {
     private Map<Integer, Drone> droneCache = Map.of();
 
     public DroneDashboard() {
+        log.log(Level.INFO, "Initializing Drone Dashboard.");
         setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
 
@@ -72,6 +72,7 @@ public class DroneDashboard extends JPanel {
             log.log(Level.SEVERE, "Failed to load Drones.");
         }
         preWarm();
+        log.log(Level.INFO, "Drone Dashboard initialized.");
     }
 
     private void loadDrones() throws IOException, InterruptedException {

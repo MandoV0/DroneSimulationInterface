@@ -3,7 +3,7 @@ package gui.view;
 import core.DroneType;
 import core.parser.DroneTypeParser;
 import services.DroneSimulationInterfaceAPI;
-
+import java.util.logging.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.AdjustmentEvent;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class DroneCatalog extends JPanel {
-
+    private static final Logger log = Logger.getLogger(DroneCatalog.class.getName());
     private CardLayout cardLayout;
     private JPanel mainPanel;
 
@@ -62,8 +62,11 @@ public class DroneCatalog extends JPanel {
         // Fetch drones (separate logic into another class or method if needed)
         Map<Integer, DroneType> drones = Map.of();
         try {
+            log.log(Level.INFO,"Fetching Drones From the API");
             drones = DroneSimulationInterfaceAPI.getInstance().fetchDrones(new DroneTypeParser(), 40, 0);
+            log.log(Level.INFO,"Drones Fetched Successfully");
         } catch (IOException | InterruptedException e) {
+            log.log(Level.SEVERE,"Failed to fetch drones: ", e);
             throw new RuntimeException(e);
         }
 
@@ -97,6 +100,7 @@ public class DroneCatalog extends JPanel {
     }
 
     private JPanel createDronePanel(DroneType droneType) {
+        log.log(Level.INFO,"Creating drone panel: ", droneType);
         JPanel panel = new JPanel(new BorderLayout()) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -143,6 +147,7 @@ public class DroneCatalog extends JPanel {
         panel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
+                log.log(Level.INFO,"Drone panel clicked: ", droneType);
                 showDroneDetails(droneType);
             }
 
@@ -161,6 +166,7 @@ public class DroneCatalog extends JPanel {
     }
 
     private void showDroneDetails(DroneType drone) {
+        log.log(Level.INFO,"Showing drone details: ", drone);
         JPanel detailsPanel = new JPanel(new BorderLayout());
         detailsPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         detailsPanel.setBackground(UIManager.getColor("Panel.background").darker());
