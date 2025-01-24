@@ -9,7 +9,7 @@ public class Main {
 
         // Default Theme
         try {
-            UIManager.setLookAndFeel( new FlatDarculaLaf() );
+            UIManager.setLookAndFeel(new FlatLightLaf());
         } catch(Exception ex) {
             System.err.println("Failed to initialize FlatLightLeaf Look and Feel");
         }

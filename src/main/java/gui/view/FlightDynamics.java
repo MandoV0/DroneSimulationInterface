@@ -6,6 +6,7 @@ import core.DynamicDrone;
 import core.parser.DroneParser;
 import core.parser.DroneTypeParser;
 import core.parser.DynamicDroneParser;
+import customException.FlightDynamicDataException;
 import gui.BatteryPanel;
 import gui.DroneFilterWindow;
 import services.DroneSimulationInterfaceAPI;
@@ -161,6 +162,7 @@ public class FlightDynamics extends JPanel {
         } catch (IOException | InterruptedException e) {
             log.log(Level.SEVERE, "Failed to fetch DynamicDrone during page load: " + page);
             JOptionPane.showMessageDialog(this, "Error while fetching Dynamic Drones", "ERROR", JOptionPane.ERROR_MESSAGE);
+            throw new FlightDynamicDataException("Failed to load dynamic drones for page " + page, e);
         }
     }
 

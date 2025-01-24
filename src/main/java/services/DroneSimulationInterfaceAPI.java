@@ -4,6 +4,10 @@ import core.DroneBase;
 import core.DynamicDrone;
 import core.parser.DynamicDroneParser;
 import core.parser.JsonDroneParser;
+import customException.APIFetchException;
+import customException.InvalidURIException;
+import customException.ParsingException;
+import customException.TokenLoadException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -68,7 +72,7 @@ public final class DroneSimulationInterfaceAPI {
 
         if (response.statusCode() != 200) {
             log.log(Level.SEVERE, "Error fetching data from endpoint " + endpointUrl + "Limit and Offset: " + limit + " " + offset);
-            throw new IOException("API Fetch failed with status code: " + response.statusCode());
+            throw new APIFetchException("API Fetch failed with status code: " + response.statusCode());
         }
 
         log.log(Level.INFO, "Fetched data from endpoint " + endpointUrl + ": " + response);
@@ -95,12 +99,19 @@ public final class DroneSimulationInterfaceAPI {
 
         for (int i = 0; i < jsonFile.length(); i++) {
             JSONObject o = jsonFile.getJSONObject(i);
-            if (parser.isValid(o)) {
-                T x = parser.parse(o);
-                data.put(x.getId(), x);
-            }
+          try{
+              if (parser.isValid(o)) {
+                  T x = parser.parse(o);
+                  data.put(x.getId(), x);
+              }
+
+            } catch (Exception e) {
+            log.log(Level.SEVERE, "Error parsing dynamic data for  drone at index:"+ i);
+            throw new ParsingException("Error parsing dynamic data for drone at index:"+ i, e);}
+
         }
         return data;
+
     }
 
     /**
@@ -123,8 +134,13 @@ public final class DroneSimulationInterfaceAPI {
 
         for (int i = 0; i < jsonFile.length(); i++) {
             JSONObject o = jsonFile.getJSONObject(i);
-            if (parser.isValid(o)) {
+            try{
+                if (parser.isValid(o)) {
                 data.add(parser.parse(o));
+                }
+            } catch (Exception e) {
+                log.log(Level.SEVERE, "Error parsing dynamic data for drone ID: " + id);
+                throw new ParsingException("Error parsing dynamic data for drone ID: " + id +" drone at index:"+ i, e);
             }
         }
 
@@ -136,7 +152,7 @@ public final class DroneSimulationInterfaceAPI {
             return new URI(BASEURL + endpointUrl + "/?format=json&limit=" + limit + "&offset=" + offset);
         }
         catch (URISyntaxException e) {
-            throw new RuntimeException("Error while constructing URI." + e.getMessage());
+            throw new InvalidURIException("Error while constructing URI." + e.getMessage());
         }
     }
 
@@ -151,7 +167,7 @@ public final class DroneSimulationInterfaceAPI {
             properties.load(inputStream);
             TOKEN = properties.getProperty("API_TOKEN");
         } catch (IOException e) {
-            throw new RuntimeException("Failed to load configuration files");
+            throw new TokenLoadException("Failed to load configuration files");
         }
     }
 }

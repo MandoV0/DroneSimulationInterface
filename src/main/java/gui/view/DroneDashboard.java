@@ -5,6 +5,8 @@ import core.DroneType;
 import core.DynamicDrone;
 import core.parser.DroneParser;
 import core.parser.DroneTypeParser;
+import customException.DroneDataCacheException;
+import customException.DroneDataFetchException;
 import gui.BatteryPanel;
 import services.DroneSimulationInterfaceAPI;
 import services.Helper;
@@ -110,11 +112,17 @@ public class DroneDashboard extends JPanel {
         droneInfoLabel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
         List<DynamicDrone> dynamicDrones = new ArrayList<>();
+
+        //checks if preWarm works
+        if (droneCache.isEmpty() || droneTypesCache.isEmpty()) {
+            throw new DroneDataCacheException("Drone cache is empty. Cannot load drone page.");
+        }
+
         try {
             dynamicDrones = DroneSimulationInterfaceAPI.getInstance().fetchDrones(id, 40, 0);
         } catch (IOException | InterruptedException e) {
             log.log(Level.SEVERE, "Failed to load Drone Sample.");
-            throw new RuntimeException(e);
+            throw new DroneDataFetchException("Failed to load Drone", e);
         }
         log.log(Level.INFO, "Successfully loaded " + dynamicDrones.size() + " Drones.");
 

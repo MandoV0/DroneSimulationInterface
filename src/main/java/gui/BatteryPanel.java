@@ -1,12 +1,12 @@
 package gui;
 
+import customException.LoadingException;
 import utils.Constants;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -37,7 +37,7 @@ public class BatteryPanel extends JPanel {
         try {
             batteryImage = ImageIO.read(getClass().getResource(Constants.BATTERY_ICON_PATH));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new LoadingException("Failed to load battery icon", e);
         }
 
         JComponent batteryPanel = new JComponent() {

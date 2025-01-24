@@ -1,5 +1,6 @@
 package gui;
 
+import customException.LoadingException;
 import gui.view.DroneCatalog;
 import gui.view.DroneDashboard;
 import gui.view.FlightDynamics;
@@ -36,8 +37,8 @@ public class MainWindow extends JFrame {
 
         } catch (IOException e) {
             System.err.println("Failed to load App Icon: " + e.getMessage());
+            throw new LoadingException("Failed to load App Icon", e);
         }
-
         createTaskBar();
     }
 
