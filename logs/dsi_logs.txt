@@ -1,20 +1,12 @@
-Jan. 27, 2025 7:29:54 PM services.DroneSimulationInterfaceAPI getInstance
+Jan. 28, 2025 7:08:31 PM services.DroneSimulationInterfaceAPI getInstance
 INFORMATION: Initializing new instance for the DroneSimulationInterfaceAPI
-Jan. 27, 2025 7:29:54 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 28, 2025 7:08:31 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Got response from endpoint, after 2 trys
-Jan. 27, 2025 7:29:55 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 28, 2025 7:08:32 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Got response from endpoint, after 2 trys
-Jan. 27, 2025 7:29:55 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 28, 2025 7:08:32 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Got response from endpoint, after 2 trys
-Jan. 27, 2025 7:29:55 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+Jan. 28, 2025 7:08:32 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
 INFORMATION: Got response from endpoint, after 2 trys
-Jan. 27, 2025 7:29:55 PM utils.AutoRefresh start
-INFORMATION: Scheduler started
-Jan. 27, 2025 7:29:55 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Got response from endpoint, after 2 trys
-Jan. 27, 2025 7:29:55 PM gui.view.DroneDashboard loadDrones
-INFORMATION: Successfully fetched 40 Drones.
-Jan. 27, 2025 7:29:55 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Got response from endpoint, after 2 trys
-Jan. 27, 2025 7:29:56 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
-INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 7:08:32 PM gui.view.FlightDynamics createDronePanel
+SCHWERWIEGEND: Drone cache is empty. Cant create Drone Panel.
