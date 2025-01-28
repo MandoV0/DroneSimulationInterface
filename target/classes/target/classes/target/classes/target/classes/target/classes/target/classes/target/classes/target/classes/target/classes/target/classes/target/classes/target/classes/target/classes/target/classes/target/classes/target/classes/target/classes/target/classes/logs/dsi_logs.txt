@@ -1,0 +1,68 @@
+Jan. 28, 2025 2:18:33 AM services.DroneSimulationInterfaceAPI getInstance
+INFORMATION: Initializing new instance for the DroneSimulationInterfaceAPI
+Jan. 28, 2025 2:18:33 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:33 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:33 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:34 AM utils.AutoRefresh start
+INFORMATION: Scheduler started
+Jan. 28, 2025 2:18:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:34 AM gui.view.DroneDashboard loadDrones
+INFORMATION: Successfully fetched 40 Drones.
+Jan. 28, 2025 2:18:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:37 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:18:37 AM gui.view.DroneDashboard loadDronePage
+INFORMATION: Successfully loaded 80 Drones with a sample size of: 80
+Jan. 28, 2025 2:19:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:20:19 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:21:04 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:21:49 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:22:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:23:19 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:24:04 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:24:49 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:25:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:26:19 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:27:04 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:27:49 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:28:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:29:19 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:30:04 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:30:49 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:31:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:32:19 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:33:04 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:33:49 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:34:34 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 2:35:19 AM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys

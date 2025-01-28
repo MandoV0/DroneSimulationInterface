@@ -189,6 +189,10 @@ public class DroneDashboard extends JPanel {
             double carriageLast = (double) latestDrone.getCarriageWeight() / (double) latestDroneType.getWeight();
             carriageLast = carriageLast * 100;                  // To get the actual percentage
 
+            // Formatting last seen to get the right DateTime
+            OffsetDateTime lastSeenTime = OffsetDateTime.parse(latestDynamicDrone.getLastSeen());
+            String formattedLastSeen = lastSeenTime.format(formatter);
+
             // Create info boxes with data
             mainInfo.add(createInfoBox("Current Speed", String.format("%.1f km/h", (double) latestDynamicDrone.getSpeed())));
             mainInfo.add(createInfoBox("Total Distance", String.format("%.2f km", totalDistance / 1000)));
@@ -196,7 +200,8 @@ public class DroneDashboard extends JPanel {
                     String.format("%.6f, %.6f", latestDynamicDrone.getLongitude(), latestDynamicDrone.getLatitude())));
             mainInfo.add(createInfoBox("Average Speed", String.format("%.2f km/h", averageSpeed)));
             mainInfo.add(createInfoBox("Carriage Last", String.format("%.2f", carriageLast) + " %"));
-            mainInfo.add(createInfoBox("Last Seen", "Yesterday oder so"));
+            mainInfo.add(createInfoBox("Last Seen", formattedLastSeen));
+
             mainInfo.add(createInfoBox("General Info", "<html>" + "Carriage Type: "
                     + latestDrone.getCarriageType() + "<br/>Manufacturer: "
                     + latestDroneType.getManufacturer() + "<br/>Model: "
@@ -215,9 +220,7 @@ public class DroneDashboard extends JPanel {
     /**
      * Creates a status bar showing drone status, timestamp, and serial number.
      *
-     * @param latestDynamicDrone The latest dynamic drone data.
-     * @param latestDrone The static drone metadata.
-     * @param latestDroneType The drone type metadata.
+     * @param latestDynamicDrone The latest dynamic drone data
      * @return A JPanel representing the status bar.
      */
 

@@ -114,8 +114,11 @@ public class FlightDynamics extends JPanel {
         try {
             droneTypesCache = DroneSimulationInterfaceAPI.getInstance().fetchDrones(new DroneTypeParser(), 40, 0);
             droneCache = DroneSimulationInterfaceAPI.getInstance().fetchDrones(new DroneParser(), 40, 0);
+            if (droneTypesCache.isEmpty() || droneCache.isEmpty()) {
+                log.log(Level.WARNING, "Drone Caches are empty after caching.");
+            }
         } catch (DroneAPIException e) {
-            log.log(Level.SEVERE, "Failed to cache DroneTypes/Drones.");
+            log.log(Level.SEVERE, "Failed to cache DroneTypes/Drones. Exception: " + e.getMessage());
         }
     }
 
@@ -156,23 +159,22 @@ public class FlightDynamics extends JPanel {
 
     private JPanel createDronePanel(DynamicDrone drone) {
         JPanel panel = new JPanel();
-
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(UIManager.getColor("Panel.background").darker(), 2),
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)
         ));
-
         panel.setBackground(UIManager.getColor("Panel.background"));
 
-        Drone d = null;
-        DroneType type = null;
+        Drone d = droneCache.get(drone.getId());
+        DroneType type = (d != null) ? droneTypesCache.get(d.getDroneTypeID()) : null;
 
-        try {
-            d = droneCache.get(drone.getId());
-            type = droneTypesCache.get(d.getDroneTypeID());
-        } catch (Exception e) {
-            log.log(Level.SEVERE, "Drone cache is empty. Cant create Drone Panel.");
+        if (d == null || type == null) {
+            log.log(Level.WARNING, "Drone or DroneType is null for Drone ID: " + drone.getId());
+            JLabel warningLabel = new JLabel("Data for Drone ID: " + drone.getId() + " is incomplete or missing.");
+            warningLabel.setForeground(Color.RED);
+            panel.add(warningLabel);
+            return panel;
         }
 
         JLabel titleLabel = new JLabel("Drone | ID: " + drone.getId());

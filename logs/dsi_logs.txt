@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Jan. 28, 2025 7:08:31 PM services.DroneSimulationInterfaceAPI getInstance
 INFORMATION: Initializing new instance for the DroneSimulationInterfaceAPI
 Jan. 28, 2025 7:08:31 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
@@ -10,3 +11,135 @@ Jan. 28, 2025 7:08:32 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpo
 INFORMATION: Got response from endpoint, after 2 trys
 Jan. 28, 2025 7:08:32 PM gui.view.FlightDynamics createDronePanel
 SCHWERWIEGEND: Drone cache is empty. Cant create Drone Panel.
+=======
+Jan. 28, 2025 6:48:55 PM services.DroneSimulationInterfaceAPI getInstance
+INFORMATION: Initializing new instance for the DroneSimulationInterfaceAPI
+Jan. 28, 2025 6:48:56 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:48:58 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:48:58 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:48:58 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 261
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 262
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 263
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 264
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 265
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 266
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 267
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 268
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 269
+Jan. 28, 2025 6:48:58 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 270
+Jan. 28, 2025 6:48:59 PM utils.AutoRefresh start
+INFORMATION: Scheduler started
+Jan. 28, 2025 6:48:59 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:48:59 PM gui.view.DroneDashboard loadDrones
+INFORMATION: Successfully fetched 40 Drones.
+Jan. 28, 2025 6:48:59 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:48:59 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:49:02 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:49:02 PM gui.view.DroneDashboard loadDronePage
+INFORMATION: Successfully loaded 80 Drones with a sample size of: 80
+Jan. 28, 2025 6:49:59 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:49:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 261
+Jan. 28, 2025 6:49:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 262
+Jan. 28, 2025 6:49:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 268
+Jan. 28, 2025 6:49:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 269
+Jan. 28, 2025 6:50:44 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:50:44 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 267
+Jan. 28, 2025 6:50:44 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 268
+Jan. 28, 2025 6:50:44 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 269
+Jan. 28, 2025 6:51:29 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 261
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 262
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 263
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 264
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 265
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 266
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 267
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 268
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 269
+Jan. 28, 2025 6:51:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 270
+Jan. 28, 2025 6:52:14 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:52:14 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 265
+Jan. 28, 2025 6:52:14 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 270
+Jan. 28, 2025 6:52:59 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 261
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 262
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 263
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 264
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 265
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 266
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 267
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 268
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 269
+Jan. 28, 2025 6:52:59 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 270
+Jan. 28, 2025 6:53:44 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:53:44 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 261
+Jan. 28, 2025 6:53:44 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 262
+Jan. 28, 2025 6:53:44 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 268
+Jan. 28, 2025 6:53:44 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 269
+Jan. 28, 2025 6:54:29 PM services.DroneSimulationInterfaceAPI fetchDataFromEndpoint
+INFORMATION: Got response from endpoint, after 2 trys
+Jan. 28, 2025 6:54:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 262
+Jan. 28, 2025 6:54:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 264
+Jan. 28, 2025 6:54:29 PM gui.view.FlightDynamics createDronePanel
+WARNUNG: Drone or DroneType is null for Drone ID: 268
+>>>>>>> 6ce06eea63f6e35026a8cc29859340f23d9b8b3d

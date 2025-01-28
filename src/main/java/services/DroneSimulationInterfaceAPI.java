@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.logging.*;
 
 /**
- * The DroneSimulationInterfaceAPI class provides an interface for interacting with a dronesim API.
+ * The DroneSimulationInterfaceAPI class provides an interface for interacting with a drone API.
  * This class is implemented as a Singleton to ensure a single instance is used across the application, as it is stateless.
  * It supports fetching all different drone types (Drone, DynamicDrone, DroneType) data from the API using parsers and configurable parameters.
  */
@@ -85,7 +85,7 @@ public final class DroneSimulationInterfaceAPI {
                     throw new DroneAPIException("Endpoint " + endpointUrl + " not found");
                 } else if (response.statusCode() == 401) {
                     log.log(Level.SEVERE, "Endpoint " + endpointUrl + " not authorized");
-                    throw new DroneAPIException("Authentiocation with the API failed. Check if Token is correct.");
+                    throw new DroneAPIException("Authentication with the API failed. Check if Token is correct.");
                 } else {
                     log.log(Level.WARNING, "API Request to endpoint " + endpointUrl + " failed with status " + response.statusCode() + " retrying....");
                 }
